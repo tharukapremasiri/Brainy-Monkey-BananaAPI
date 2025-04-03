@@ -2,7 +2,7 @@
 $hostname = 'localhost';
 $username = 'root';
 $password = '';
-$databasename = 'mobilecost_db';
+$databasename = 'game_db';
 
 
 $conn = new mysqli($hostname, $username, $password, $databasename);

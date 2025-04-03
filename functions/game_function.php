@@ -54,63 +54,75 @@ function initializeGameSession() {
 }
 
 // Handle Answer Submission
+// Handle Answer Submission
 function checkAnswer($userAnswer, $correctAnswer) {
     $level = $_SESSION['game_level'];
+    $scorePerQuestion = 10 * $level;
     $response = [];
 
-    // Check if the answer is empty
-    if ($userAnswer === "") {
-        $response['status'] = "error";
-        $response['message'] = "Please enter an answer.";
-    }
-    // Check if the answer is correct
+    // Timeout case
+    if ($_POST['submitType'] === "timeout") {
+        $_SESSION['levels'][$level]['lives']--;
+        if ($_SESSION['levels'][$level]['lives'] == 0) {
+            $response['status'] = "game_over";
+            $response['message'] = "Time's up! Game Over!";
+        } else {
+            $_SESSION['current_question']++;
+            $response['status'] = "life_lost";
+            $response['message'] = "Time's up! You lost a life!";
+        }
+    } 
+    // Correct Answer case
     elseif ($userAnswer == $correctAnswer) {
-        $_SESSION['current_question']++; // Move to next question
-        $_SESSION['levels'][$level]['attempts'] = 3; // Reset attempts for next question
+        $_SESSION['current_question']++;
+        $_SESSION['levels'][$level]['score'] += $scorePerQuestion;
 
-        // Check if level is complete
+        // Check if all questions for the current level are completed
         if ($_SESSION['current_question'] > getQuestionsPerLevel($level)) {
-            $_SESSION['levels'][$level]['completed'] = true; // Mark level as completed
-            $_SESSION['game_level']++; // Move to next level
-            initializeGameSession(); // Reset attempts and lives for next level
-            $_SESSION['current_question'] = 1; // Reset question count
+            // Mark the level as completed
+            $_SESSION['levels'][$level]['completed'] = true;
 
+            // Check if the player has completed the current level
+            $_SESSION['game_level']++; // Proceed to the next level
+            initializeGameSession();
+            $_SESSION['current_question'] = 1; // Reset the current question for the next level
             $response['status'] = "level_complete";
             $response['message'] = "Level $level complete! 🎉 Moving to Level " . $_SESSION['game_level'];
         } else {
             $response['status'] = "correct";
             $response['message'] = "Correct! 🎉 Next Question!";
         }
-    } else {
-        // Check if the game is over for this level
-        if ($_SESSION['levels'][$level]['lives'] == 0) {
-            $response['status'] = "game_over";
-            $response['message'] = "Game Over! Restarting Level $level...";
-
-            // Reset only current level data (not previous levels)
+    } 
+    // Incorrect Answer case
+    else {
+        $_SESSION['levels'][$level]['attempts']--;
+        if ($_SESSION['levels'][$level]['attempts'] == 0) {
+            $_SESSION['levels'][$level]['lives']--;
             $_SESSION['levels'][$level]['attempts'] = 3;
-            $_SESSION['levels'][$level]['lives'] = 2;
-            $_SESSION['current_question'] = 1; // Restart level
 
-            $response['redirect'] = "gameOver.php";  // Indicate redirection to restart level
-        } else {
-            $_SESSION['levels'][$level]['attempts']--; // Decrease attempts
-
-            if ($_SESSION['levels'][$level]['attempts'] == 0) {
-                if ($_SESSION['levels'][$level]['lives'] > 0) {
-                    $_SESSION['levels'][$level]['lives']--; // Use a life
-                    $_SESSION['levels'][$level]['attempts'] = 3; // Reset attempts
-                    $response['status'] = "life_lost";
-                    $response['message'] = "Incorrect! You lost a life. Try again!";
-                }
+            if ($_SESSION['levels'][$level]['lives'] == 0) {
+                $response['status'] = "game_over";
+                $response['message'] = "Game Over!";
             } else {
-                $response['status'] = "incorrect";
-                $response['message'] = "Incorrect! Attempts left: " . $_SESSION['levels'][$level]['attempts'];
+                $response['status'] = "life_lost";
+                $response['message'] = "Incorrect! You lost a life.";
             }
+        } else {
+            $response['status'] = "incorrect";
+            $response['message'] = "Incorrect! Attempts left: " . $_SESSION['levels'][$level]['attempts'];
         }
     }
 
+    // Return the updated status, score, lives, and attempts
+    $response['score'] = $_SESSION['levels'][$level]['score'];
+    $response['lives'] = $_SESSION['levels'][$level]['lives'];
+    $response['attempts'] = $_SESSION['levels'][$level]['attempts'];
+    $response['newQuestion'] = true;
+
+    // Send the response as JSON
     echo json_encode($response);
     exit();
 }
+
+
 ?>
