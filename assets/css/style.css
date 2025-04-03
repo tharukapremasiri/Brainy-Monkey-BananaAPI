@@ -8,7 +8,7 @@
     /* Green Theme Colors */
     --primary-green: #4CAF50;
     --light-green: #81C784;
-    --dark-green: #388E3C;
+    --dark-green: rgb(0, 65, 5);
 
     /* Additional Colors */
     --white: #FFFFFF;
@@ -182,15 +182,15 @@ body {
 } */
 
 /* Answer Input & Button */
-/* .answer-div {
+.answer-div {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-} */
+}
 
-/* .answer-field {
-    width: 80%;
+.answer-field {
+    width: 50%;
     padding: 10px;
     font-size: 18px;
     border: 2px solid #333;
@@ -209,11 +209,12 @@ body {
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s;
+    width: 50%;
 }
 
 #submitAnswer:hover {
     background-color: darkgreen;
-} */
+}
 
 
 .game-body {
@@ -221,7 +222,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    background-color: #ffcc00; 
+    background-color:rgb(0, 65, 5); 
     padding: 2px;
     border-radius: 15px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
@@ -234,7 +235,7 @@ body {
 .left-column {
     margin: 0;
     padding: 0;
-    background: url('../img/game-background.png') no-repeat center center; 
+    background: url('../img/frame.png') no-repeat center center; 
     background-size: cover; /* Ensures full coverage */
     font-family: 'Comic Sans MS', cursive, sans-serif;
     text-align: center;
@@ -244,6 +245,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
 }
 
 .right-column {
@@ -254,6 +256,8 @@ body {
     justify-content: space-between;
     border-left: 2px solid #ccc;
     padding: 15px;
+    margin-right: 40px;
+    background-color: var(--dark-yellow);
 }
 .lives-container img {
     width: 30px;
@@ -266,9 +270,10 @@ body {
     font-weight: bold;
 }
 .question-image {
-    width: 600px; 
+    width: 400px; 
     height: auto;
     object-fit: cover; /* Ensures the image covers the area */
     object-position: center -25px; /* Moves image 10px up */
+    border-radius: 10px;
 }
 
