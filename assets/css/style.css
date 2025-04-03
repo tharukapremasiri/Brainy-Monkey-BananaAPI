@@ -1,0 +1,274 @@
+
+:root {
+    /* Yellow Theme Colors */
+    --primary-yellow: #FFCC00;
+    --light-yellow: #FFE066;
+    --dark-yellow: #E6B800;
+
+    /* Green Theme Colors */
+    --primary-green: #4CAF50;
+    --light-green: #81C784;
+    --dark-green: #388E3C;
+
+    /* Additional Colors */
+    --white: #FFFFFF;
+    --black: #000000;
+}
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    background: url('../img/dashboard.png') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    text-align: center;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+#game-container {
+    /* background: none !important; Remove inherited background image */
+    background-color: green !important; /* Apply solid background color */
+    margin: 0;
+    padding: 0;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    text-align: center;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+
+
+/* Auth Buttons (Top Right) */
+.auth-buttons {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between buttons */
+}
+
+.auth-buttons .btn {
+    padding: 8px 15px;
+    background-color: var(--primary-yellow);
+    color: var(--black);
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.auth-buttons .btn:hover {
+    background-color: var(--dark-yellow);
+}
+
+/* Profile Icon Styling */
+.auth-buttons a img {
+    width: 40px;  /* Adjust size of monkey face */
+    height: 40px;
+    border-radius: 50%; /* Makes it circular */
+    background-color: var(--primary-yellow); /* Yellow background */
+    padding: 5px; /* Space around the icon */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out;
+}
+
+.auth-buttons a img:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+
+.btn {
+    background-color: #ffcc00;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+/* Title Image (Top Center, No Gap with Login Buttons) */
+.title {
+    margin-top: 5px; /* Very close to login buttons */
+    text-align: center;
+}
+
+.title img {
+    width: 500px; /* Adjust title size */
+    margin-top: 20px;
+}
+
+/* Dashboard Grid */
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 10px;
+    justify-content: center;
+    margin-top: 40px;
+    margin-left: 200px;
+    margin-right:200px ;
+}
+
+.cage img {
+    width: 320px; /* Adjust game option icons */
+    height: auto;
+    transition: transform 0.2s;
+}
+
+.cage img:hover {
+    transform: scale(1.1);
+}
+
+/* Bottom Left Exit Button */
+.exit-container {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: var(--primary-yellow);
+}
+
+.exit-container img {
+    width: 80px; /* Adjust exit icon size */
+    
+}
+
+/* Bottom Right: Speaker & Settings */
+.asset-container {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.asset-container img {
+    width: 60px; /* Adjust settings and speaker icons */
+}
+.asset-container img:hover {
+    transform: scale(1.1);
+}
+
+/* game page */
+/* Game Body Container */
+/* .game-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background-color: #ffcc00; 
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    margin: auto;
+} */
+
+/* Image Container */
+/* .image-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+} */
+
+/* Question Image */
+/* .question-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+} */
+
+/* Answer Input & Button */
+/* .answer-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+} */
+
+/* .answer-field {
+    width: 80%;
+    padding: 10px;
+    font-size: 18px;
+    border: 2px solid #333;
+    border-radius: 8px;
+    text-align: center;
+}
+
+#submitAnswer {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background-color: green;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#submitAnswer:hover {
+    background-color: darkgreen;
+} */
+
+
+.game-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #ffcc00; 
+    padding: 2px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 1300px;
+    height: 550px;
+    margin: auto;
+    margin-top: 80px;
+}
+
+.left-column {
+    margin: 0;
+    padding: 0;
+    background: url('../img/game-background.png') no-repeat center center; 
+    background-size: cover; /* Ensures full coverage */
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    text-align: center;
+    width: 75%;
+    height: 100%;
+    display: flex; /* Helps maintain structure */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.right-column {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-left: 2px solid #ccc;
+    padding: 15px;
+}
+.lives-container img {
+    width: 30px;
+    margin: 2px;
+}
+/* Error Message */
+.error-message {
+    color: red;
+    font-size: 16px;
+    font-weight: bold;
+}
+.question-image {
+    width: 600px; 
+    height: auto;
+    object-fit: cover; /* Ensures the image covers the area */
+    object-position: center -25px; /* Moves image 10px up */
+}
+
