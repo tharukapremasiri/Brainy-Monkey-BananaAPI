@@ -128,7 +128,7 @@ body {
 }
 
 .exit-container img {
-    width: 80px; /* Adjust exit icon size */
+    width: 60px; /* Adjust exit icon size */
     
 }
 
@@ -275,5 +275,123 @@ body {
     object-fit: cover; /* Ensures the image covers the area */
     object-position: center -25px; /* Moves image 10px up */
     border-radius: 10px;
+}
+.headers{
+    color: white;
+    padding-bottom: 10px;
+}
+/* score board */
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f9;
+    padding: 20px;
+}
+
+h2 {
+    color: #333;
+    font-size: 2em;
+}
+
+/* Table styling */
+table {
+    width: 50%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+
+th, td {
+    padding: 10px 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+td {
+    font-size: 1.2em;
+}
+
+/* Banana icon styles */
+.banana-icon {
+    width: 30px;
+    height: auto;
+    vertical-align: middle;
+}
+
+/* Message styling */
+.status-message {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+/* Game over styling */
+.game-over {
+    color: red;
+    font-size: 1.2em;
+}
+/* Style the Play Again link as a button */
+a.play-again-button {
+    display: inline-block;
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding inside the button */
+    text-align: center; /* Center the text inside the button */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    font-size: 1.2em; /* Larger text */
+    margin-top: 20px; /* Space above the button */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+a.play-again-button:hover {
+    background-color: #45a049; /* Darker green when hovered */
+}
+
+a.play-again-button:active {
+    background-color: #3e8e41; /* Even darker green when clicked */
+}
+.life-icon-container {
+    width: 40px;  /* Adjust size of monkey face */
+    height: 40px;
+    border-radius: 50%; /* Makes it circular */
+    background-color: var(--primary-yellow); /* Yellow background */
+    padding: 5px; /* Space around the icon */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out;
+}
+
+.life-icon {
+    width: 40px; /* Set the width of the image */
+    height: 40px; /* Set the height of the image */
+    object-fit: cover; /* Ensures the image fits inside the circle */
+}
+.exit-container {
+    background: none;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 9999;
+}
+#exit-game{
+    display: inline-block;
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding inside the button */
+    text-align: center; /* Center the text inside the button */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    font-size: 1.2em; /* Larger text */
+    margin-top: 20px; /* Space above the button */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+/* Add hover effect */
+#exit-game:hover {
+    background-color: #ff1a1a; /* Darker red on hover */
 }
 

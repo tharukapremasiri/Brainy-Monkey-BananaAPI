@@ -18,7 +18,7 @@
         Logout
       </button>
       <!-- Profile Icon with Yellow Background -->
-      <a href="profile.html">
+      <a href="content/profile.php">
         <img src="assets/img/monkey-face.png" alt="Profile" />
       </a>
     </div>
@@ -33,22 +33,25 @@
       <a href="content/game.php" class="cage">
         <img src="assets/img/start.png" alt="Start Game" />
       </a>
-      <a href="scoreboard.html" class="cage">
+      <a href="content/scoreBoard.php" class="cage">
         <img src="assets/img/score.png" alt="Scoreboard" />
       </a>
-      <a href="assets.html" class="cage">
+      <a href="content/dailyChallenge.php" class="cage">
         <img src="assets/img/daily.png" alt="Daily Challenge" />
       </a>
-      <a href="progress.html" class="cage">
+      <a href="content/leaderboard.php" class="cage">
         <img src="assets/img/leader.png" alt="Leaderboard" />
       </a>
     </div>
 
     <!-- Bottom Left: Exit Button -->
     <div class="exit-container">
-      <button id="exit-game">
-        <img src="assets/img/exit.png" alt="Exit" />
-      </button>
+    <button id="exit-game" onclick="exitGame()" >
+            Exit
+            <!-- <img src="../assets/img/exit.png" alt="Exit" class="exit-icon" /> -->
+            <!-- Optionally use a Font Awesome icon, uncomment below if using Font Awesome -->
+            <!-- <i class="fa fa-sign-out-alt exit-icon"></i> -->
+        </button>
     </div>
 
     <!-- Bottom Right: Speaker & Settings -->
@@ -63,7 +66,7 @@
   </div>
 
   <script src="assets/js/auth.js"></script>
-  <script src="assets/js/script.js"></script>
+  <script src="exit.js"></script>
 </body>
 
 </html>

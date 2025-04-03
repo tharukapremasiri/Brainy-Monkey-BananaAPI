@@ -21,3 +21,5 @@ function signOut() {
 }
 
 document.addEventListener("DOMContentLoaded", checkLoginStatus);
+
+
