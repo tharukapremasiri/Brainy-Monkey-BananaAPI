@@ -41,9 +41,9 @@ function getCurrentTimeFromAPI($timezone = 'Europe/London') {
     }
 }
 
-// Example usage
-$timezone = 'America/New_York'; // You can change this to any valid timezone, e.g., 'Asia/Kolkata'
-$currentTime = getCurrentTimeFromAPI($timezone);
-echo "Current time in {$timezone}: {$currentTime}";
+// // Example usage
+// $timezone = 'America/New_York'; // You can change this to any valid timezone, e.g., 'Asia/Kolkata'
+// $currentTime = getCurrentTimeFromAPI($timezone);
+// echo "Current time in {$timezone}: {$currentTime}";
 
 ?>

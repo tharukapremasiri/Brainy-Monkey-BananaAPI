@@ -7,16 +7,19 @@
   <title>Brainy Monkey</title>
   <link rel="stylesheet" href="assets/css/style.css" />
   <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <style>
+    
+  </style>
 </head>
 
 <body>
   <div class="container">
     <!-- Auth Buttons at the Top Right -->
     <div class="auth-buttons">
-      <a href="login.html" id="login-button" class="btn">Login</a>
-      <button id="logout-button" class="btn hidden" onclick="signOut()">
+      <a href="content/login.php" id="login-button" class="btn">Login</a>
+      <!-- <button id="logout-button" class="btn hidden" onclick="signOut()">
         Logout
-      </button>
+      </button> -->
       <!-- Profile Icon with Yellow Background -->
       <a href="content/profile.php">
         <img src="assets/img/monkey-face.png" alt="Profile" />
@@ -42,6 +45,7 @@
       <a href="content/leaderboard.php" class="cage">
         <img src="assets/img/leader.png" alt="Leaderboard" />
       </a>
+      
     </div>
 
     <!-- Bottom Left: Exit Button -->
@@ -52,11 +56,14 @@
             <!-- Optionally use a Font Awesome icon, uncomment below if using Font Awesome -->
             <!-- <i class="fa fa-sign-out-alt exit-icon"></i> -->
         </button>
+        <a href="content/leaderboard.php" class="button">
+        <p>How to play</p>
+      </a>
     </div>
 
     <!-- Bottom Right: Speaker & Settings -->
     <div class="asset-container">
-      <a href="#">
+    <a href="#" id="toggle-music">
         <img src="assets/img/speker.png" alt="Speaker" />
       </a>
       <a href="#">
@@ -64,9 +71,30 @@
       </a>
     </div>
   </div>
+  <!-- Background Music (Initially paused) -->
+  <audio id="background-music" src="assets/music/music.mp3" preload="auto" loop></audio>
 
   <script src="assets/js/auth.js"></script>
   <script src="exit.js"></script>
+  
+  <!-- JavaScript to control music -->
+  <script>
+    let music = document.getElementById('background-music');
+    let toggleMusicButton = document.getElementById('toggle-music');
+
+    // Initially, the music will be paused
+    let isPlaying = false;
+
+    // Toggle music play/pause when clicking on the speaker icon
+    toggleMusicButton.addEventListener('click', function() {
+      if (isPlaying) {
+        music.pause();  // Pause the music
+      } else {
+        music.play();  // Play the music
+      }
+      isPlaying = !isPlaying;  // Toggle the play state
+    });
+  </script>
 </body>
 
 </html>
